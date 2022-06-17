@@ -29,7 +29,7 @@ class FiltersSection(base.SectionBase):
 		| Strings | List of swarm filters added |
 		+---------+-----------------------------+
 		"""
-		args = (str(address), *(str(a) for a in address))
+		args = (str(address), *(str(a) for a in addresses))
 		return self._client.request('/swarm/filters/add', args, decoder='json', **kwargs)
 	
 	
@@ -60,7 +60,7 @@ class FiltersSection(base.SectionBase):
 		| Strings | List of swarm filters removed |
 		+---------+-------------------------------+
 		"""
-		args = (str(address), *(str(a) for a in address))
+		args = (str(address), *(str(a) for a in addresses))
 		return self._client.request('/swarm/filters/rm', args, decoder='json', **kwargs)
 
 
@@ -133,7 +133,7 @@ class Section(base.SectionBase):
 			dict
 				Textual connection status report
 		"""
-		args = (str(address), *(str(a) for a in address))
+		args = (str(address), *(str(a) for a in addresses))
 		return self._client.request('/swarm/connect', args, decoder='json', **kwargs)
 	
 	
@@ -166,7 +166,7 @@ class Section(base.SectionBase):
 			dict
 				Textual connection status report
 		"""
-		args = (str(address), *(str(a) for a in address))
+		args = (str(address), *(str(a) for a in addresses))
 		return self._client.request('/swarm/disconnect', args, decoder='json', **kwargs)
 	
 	
